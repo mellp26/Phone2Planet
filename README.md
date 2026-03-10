@@ -13,7 +13,7 @@ You recycle. The Earth balances the rest.
 **Technical Architecture**
 
 Phone2Planet is built using a serverless and AI-powered architecture using Microsoft Azure services. The system integrates multiple Azure services to create a scalable, event-driven workflow that processes user recycling requests and generates personalized sustainability insights.
-The application follow: frontend → API → AI →  Email notification .
+The application follow: frontend → API → AI →  Email notification.
 User requests are processed through Azure Functions, which interact with a  Cosmos DB database, generate AI insights, and deliver personalized results via email.
 
 **System Workflow**
