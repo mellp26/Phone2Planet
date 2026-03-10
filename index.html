@@ -1,0 +1,128 @@
+<body>
+  <div class="container">
+    <h1>Phone2Planet</h1>
+    <h2><em>"You Recycle. The Earth Balances the Rest."</em></h2>
+
+    <img
+      src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/163/078/original/Ewaste.jpeg?1744645263"
+    />
+
+    <p>
+      Help reduce e-waste by responsibly recycling your old phone. Enter your
+      details below and receive recycling options along with your personalized
+      environmental impact report.
+    </p>
+
+    <form id="recycleForm">
+      <br />
+      <input type="text" id="name" placeholder="Your Name" required />
+      <br /><br />
+
+      <input type="email" id="email" placeholder="Your Email" required />
+      <br /><br />
+
+      <select id="phoneModel" required>
+        <option value="">Select Phone Model</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Samsung">Samsung</option>
+        <option value="Google Pixel">Google Pixel</option>
+        <option value="Other Models">Other Models</option>
+      </select>
+
+      <br /><br />
+      <button type="submit">Recycle My Phone</button>
+      <div id="responseMessage" style="margin-top: 20px; font-size: 18px"></div>
+    </form>
+
+    <p id="responseMessage"></p>
+
+    <p class="footer">Website designed and developed by: Mellinda</p>
+  </div>
+
+  <script>
+    const form = document.getElementById("recycleForm");
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const phoneModel = document.getElementById("phoneModel").value;
+
+      /*
+      old code for API call
+      <try {
+        const response = await fetch(
+          "https://phone2planet-api-gsdygdh6e9gdgce7.canadacentral-01.azurewebsites.net/api/recyclePhone",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              phoneModel: phoneModel,
+            }),
+          },
+        );
+
+        const data = await response.json();
+
+        document.getElementById("responseMessage").innerText =
+          "Thank you " + name + "! Check your email for your impact report.";
+      } catch (error) {
+        document.getElementById("responseMessage").innerText =
+          "Something went wrong. Please try again.";
+      }
+      */
+
+      try {
+        // 🔹 Call the Azure Function API endpoint with a POST request
+        const response = await fetch(
+          "https://phone2planet-api-gsdygdh6e9gdgce7.canadacentral-01.azurewebsites.net/api/recyclePhone",
+          {
+            method: "POST", // We are sending data to the server
+            headers: {
+              "Content-Type": "application/json", // Telling server we are sending JSON
+            },
+            body: JSON.stringify({
+              // Convert JS object → JSON
+              name: name,
+              email: email,
+              phoneModel: phoneModel,
+            }),
+          },
+        );
+
+        // 🔹 Convert the backend response into a JavaScript object
+        const data = await response.json();
+
+        // 🔹 Check if the backend returned sustainability material data
+        if (data.materials) {
+          document.getElementById("responseMessage").innerHTML = `
+        <h3>${data.message}</h3>
+
+        <p><strong>Material Recovery Breakdown for your ${phoneModel}:</strong></p>
+
+        <ul>
+          <li>Plastic: ${data.materials.plastic}%</li>
+          <li>Zinc: ${data.materials.zinc}%</li>
+          <li>Metal: ${data.materials.metal}%</li>
+        </ul>
+      `;
+        } else {
+          // 🔹 Fallback message (in case database returned no materials)
+          document.getElementById("responseMessage").innerText =
+            "Thank you " + name + "! Your phone has been processed.";
+        }
+      } catch (error) {
+        // 🔹 If ANY error happens (network, server, code), handle it here
+        document.getElementById("responseMessage").innerText =
+          "Something went wrong. Please try again.";
+
+        console.error("API Error:", error); // 🔹 Log details for debugging
+      }
+    });
+  </script>
+</body>
