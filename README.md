@@ -55,7 +55,7 @@ This approach provides users with:
 - Increased awareness about e-waste reduction
 
 **Project Structure**
-phone2planet
+.phone2planet
 - frontend
   - index.html
 - api
