@@ -33,26 +33,26 @@ Metal: 6%
 5.The system then sends this information to Azure OpenAI, which generates an AI-powered sustainability insight explaining the environmental benefits of recycling the phone.
 6.The application composes a personalized sustainability report.
 7.Using Azure Communication Services, the system sends the user an email containing:
-> Recovered material breakdown
-> AI generated sustainability insight
-> A personalized thank-you message
+- Recovered material breakdown
+- AI generated sustainability insight
+- A personalized thank-you message
 
 **Azure Services Used**
 
-Azure App Service	 ---> Hosts the Phone2Planet frontend web application
-Azure Functions	 ---> Serverless backend API that processes recycling requests
-Azure Cosmos DB	----> Stores recyclable material data for different phone models
-Azure OpenAI	  ----> Generates sustainability insights using GPT models
-Azure Communication Services --->	Sends personalized email reports to users
+- Azure App Service	 ---> Hosts the Phone2Planet frontend web application
+- Azure Functions	 ---> Serverless backend API that processes recycling requests
+- Azure Cosmos DB	----> Stores recyclable material data for different phone models
+- Azure OpenAI	  ----> Generates sustainability insights using GPT models
+- Azure Communication Services --->	Sends personalized email reports to users
 
 **AI Integration**
 
 Phone2Planet integrates Azure OpenAI to generate sustainability insights dynamically.
 Instead of using static messages, the AI model analyzes the recovered material breakdown and generates a contextual explanation about the environmental impact of recycling the device.
 This approach provides users with:
-> Personalized sustainability insights
-> Educational information about recycling
-> Increased awareness about e-waste reduction
+- Personalized sustainability insights
+- Educational information about recycling
+- Increased awareness about e-waste reduction
 
 **Project Structure**
 phone2planet
@@ -76,31 +76,30 @@ phone2planet
 Phone2Planet follows cloud security best practices by ensuring that sensitive credentials and configuration values are not hard-coded in the application.
 All sensitive information such as API keys, database connection strings, and service endpoints are stored securely using Azure Function App environment variables.
 Key security practices implemented:
-> Sensitive credentials stored as environment variables
-> Secure communication using HTTPS endpoints
-> Serverless architecture reduces infrastructure attack surface
-> Access to cloud services managed through Azure resource authentication
+- Sensitive credentials stored as environment variables
+- Secure communication using HTTPS endpoints
+- Serverless architecture reduces infrastructure attack surface
+- Access to cloud services managed through Azure resource authentication
 This approach ensures that the application remains secure while interacting with external services such as Azure OpenAI and Azure Communication Services.
 
 **Scalability**
 
 Phone2Planet is built on a serverless cloud architecture, which allows the system to automatically scale based on user demand.Azure Functions automatically scale depending on the number of incoming requests, making the platform capable of handling increased usage without manual infrastructure management.
 Key scalability benefits:
-> Auto-scaling compute using Azure Functions
-> Globally distributed database using Azure Cosmos DB
-> Event-driven architecture that processes requests efficiently
-> Reduced infrastructure overhead through serverless deployment
+- Auto-scaling compute using Azure Functions
+- Globally distributed database using Azure Cosmos DB
+- Event-driven architecture that processes requests efficiently
+- Reduced infrastructure overhead through serverless deployment
 This architecture allows Phone2Planet to support a growing number of users while maintaining performance and reliability.
 
 **Future Enhancements**
 
 Phone2Planet can be extended with several additional capabilities to further improve its impact and functionality.
 Potential future improvements include:
-> Integration with Bing Search API to locate nearby phone recycling centers
-> Generation of downloadable AI-powered sustainability PDF reports
-> Carbon footprint estimation for each recycled device
-> Mobile application version for easier accessibility
-> Integration with certified global recycling partners
+- Integration with Bing Search API to locate nearby certified phone recycling centers based on location
+- Generation of downloadable AI-powered sustainability PDF reports
+- Calculation of estimated CO2 emission  saved, energy conserved and water preseved throug responsible phone recycling.
+- Integration with certified global recycling partners
 These enhancements would further strengthen the platform's mission of promoting responsible recycling and environmental awareness.
 
 **Why This Project Matters**
