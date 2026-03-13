@@ -65,7 +65,7 @@ phone2planet
        - package.json
 - Architecture
    - Phone2PlanetArchitecture.png
--README.md
+- README.md
 
 **Security Considerations**
 
