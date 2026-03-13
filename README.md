@@ -56,20 +56,16 @@ This approach provides users with:
 
 **Project Structure**
 phone2planet
-│
-├── frontend
-│   └── index.html
-│
-├── api
-│   ├── recyclePhone
-│   │   └── index.js
-│   ├── host.json
-│   └── package.json
-│
-├── architecture
-│   └── Phone2PlanetArchitecture.png
-│
-└── README.md
+- frontend
+  - index.html
+- api
+  ─ recyclePhone
+       - index.js
+       - host.json
+       - package.json
+- Architecture
+   - Phone2PlanetArchitecture.png
+-README.md
 
 **Security Considerations**
 
