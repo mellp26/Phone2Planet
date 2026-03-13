@@ -94,7 +94,7 @@ Phone2Planet can be extended with several additional capabilities to further imp
 Potential future improvements include:
 - Integration with Bing Search API to locate nearby certified phone recycling centers based on location
 - Generation of downloadable AI-powered sustainability PDF reports
-- Calculation of estimated CO2 emission  saved, energy conserved and water preseved throug responsible phone recycling.
+- Calculation of estimated CO2 emission  saved, energy conserved and water preseved through responsible phone recycling.
 - Integration with certified global recycling partners
 These enhancements would further strengthen the platform's mission of promoting responsible recycling and environmental awareness.
 
